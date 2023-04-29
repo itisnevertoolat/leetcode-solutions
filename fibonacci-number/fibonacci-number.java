@@ -1,16 +1,10 @@
-class Solution {
-    Map<Integer, Integer> fibonacciCache = new HashMap<>();
-    int result;
-    public int fib(int n) {
-        
-        if(fibonacciCache.containsKey(n)){
-            return fibonacciCache.get(n);
-        }
-        else if(2 > n){
-            result = n;
-        }else{
-            result = fib(n-1) + fib(n-2);
-        }
-        return result;
+class Solution 
+{
+    public int fib(int N)
+    {
+        if(N <= 1)
+            return N;
+        else
+            return fib(N - 1) + fib(N - 2);
     }
 }
