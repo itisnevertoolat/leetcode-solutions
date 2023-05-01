@@ -8,11 +8,10 @@ class Solution {
         
     }
     int findNum(List<Integer> values,int k, int i){
-        int size = values.size();
-        if(size == 1){
+        if(values.size() == 1){
             return values.get(0);
         }
-        i = (i + k-1) % size;
+        i = (i + k-1) % values.size();
         values.remove(i);
         return findNum(values, k, i);
     }
