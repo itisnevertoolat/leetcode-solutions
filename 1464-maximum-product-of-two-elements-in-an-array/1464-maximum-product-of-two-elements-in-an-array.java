@@ -1,6 +1,6 @@
 class Solution {
     public int maxProduct(int[] nums) {
-        PriorityQueue<Integer> queue = new PriorityQueue<>(new CustomComparator());
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
         for(int i = 0;i< nums.length;i++){
             queue.add(nums[i]);
         }
@@ -10,19 +10,3 @@ class Solution {
     }
 }
 
-class CustomComparator implements Comparator<Integer> {
-
-    @Override
-    public int compare(Integer number1, Integer number2) {
-        int value =  number1.compareTo(number2);
-        if (value > 0) {
-            return -1;
-        }
-        else if (value < 0) {
-            return 1;
-        }
-        else {
-            return 0;
-        }
-    }
-}
