@@ -4,9 +4,9 @@ class Solution {
         for(int i = 0;i< nums.length;i++){
             queue.add(nums[i]);
         }
-        int a = queue.poll() - 1;
-        int b = queue.poll() - 1;
-        return a * b;
+        int fmax = queue.poll() - 1;
+        int smax = queue.poll() - 1;
+        return fmax * smax;
     }
 }
 
