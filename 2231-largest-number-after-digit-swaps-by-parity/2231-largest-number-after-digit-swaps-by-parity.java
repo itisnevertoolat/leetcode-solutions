@@ -1,29 +1,21 @@
 class Solution {
     public int largestInteger(int num) {
-        PriorityQueue<Integer> evenQueue = new PriorityQueue<>();
-        PriorityQueue<Integer> oddQueue = new PriorityQueue<>();
-        int temp = num;
+        char[] arr = Integer.toString(num).toCharArray();
+        PriorityQueue<Character> evenQueue = new PriorityQueue<>();
+        PriorityQueue<Character> oddQueue = new PriorityQueue<>();
         StringBuilder res = new StringBuilder();
-        while(num > 0){
-            int current = num % 10;
-            if(current % 2 == 0){
-                evenQueue.add(current);
+        for(char c: arr){
+            if(c % 2 == 0){
+                evenQueue.add(c);
             }else{
-                oddQueue.add(current);
+                oddQueue.add(c);
 
             }
-            num /= 10;
         }
-        num = temp;
-        while(num > 0){
-            int current = num % 10;
-            if(current%2==0) res.insert(0, evenQueue.poll());
-            else res.insert(0, oddQueue.poll());
-            System.out.println(res);
-            num /= 10;
+        for (int i = arr.length - 1; i >= 0; i--) {
+            arr[i] = arr[i] % 2 == 0 ? evenQueue.poll() : oddQueue.poll();
         }
-      
 
-        return Integer.valueOf(res.toString());
+        return Integer.parseInt(new String(arr));
     }
 }
