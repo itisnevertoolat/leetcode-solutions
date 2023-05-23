@@ -6,7 +6,7 @@ class Solution {
             char[] ca = i.toCharArray();
             Arrays.sort(ca);
             String key = String.valueOf(ca);
-            map.computeIfAbsent(key, k -> new ArrayList<>());
+            if (!map.containsKey(key)) map.put(key, new ArrayList<>());
             map.get(key).add(i);
         }
         return new ArrayList<>(map.values());
