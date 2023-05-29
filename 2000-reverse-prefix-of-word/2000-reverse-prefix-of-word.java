@@ -2,9 +2,11 @@ class Solution {
     public String reversePrefix(String word, char ch) {
         if(word.length() == 1 || !word.contains(ch+"") || word.charAt(0) == ch) return word;
         char[] arr = word.toCharArray();
-        int index = word.indexOf(ch);
+        int end = 0;
+        for(; end < arr.length ; end++)
+            if(word.charAt(end)==ch)
+                break;
         int start = 0;
-        int end = index;
         while(start <= end){
             char temp = arr[start];
             arr[start] = arr[end];
@@ -13,7 +15,7 @@ class Solution {
             start++;
         }
         
-            return new String(arr);
+            return String.valueOf(arr);
         
     }
 }
