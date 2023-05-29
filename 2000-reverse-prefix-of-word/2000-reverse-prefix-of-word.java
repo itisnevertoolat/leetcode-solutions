@@ -11,15 +11,16 @@ class Solution {
                 break;
             }
         }
-        char[] arr = new char[end+1];
+        int index = end+1;
+        res.setLength(index);
+        
         while(start <= end){
-            arr[start] = word.charAt(end);
-            arr[end] = word.charAt(start);
+            res.setCharAt(start, word.charAt(end));
+            res.setCharAt(end, word.charAt(start));
             end--;
             start++;
         }
-        res.append(new String(arr));
-        res.append(word.substring(arr.length));
+        res.append(word.substring(index));
         
             return res.toString();
         
