@@ -14,10 +14,10 @@ class Solution {
     public String truncateSentence(String s, int k) {
         int track=0;
         StringBuilder res=new StringBuilder();
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i) == ' ') track++;
+        for(char c: s.toCharArray()){
+            if(c == ' ') track++;
             if(track==k) break;
-            res.append(s.charAt(i));
+            res.append(c);
         }
         return res.toString();
     }
