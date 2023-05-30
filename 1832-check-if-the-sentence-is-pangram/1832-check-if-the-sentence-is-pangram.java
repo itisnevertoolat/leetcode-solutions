@@ -6,9 +6,7 @@ class Solution {
         for(char c: arr){
             set.add(c);
         }
-        for(int i=97;i<123;i++){
-            if(!set.contains((char)i)) return false;
-        }
+        if(set.size() != 26 ) return false;
 
         return true;
     }
