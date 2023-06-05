@@ -7,7 +7,6 @@ class Solution {
         for(int i=0;i<mat.length;i++){
             if(primaryJ==secondaryJ) {
                 sum += mat[primaryI][primaryJ];
-                System.out.println("We're here");
                 }
             else{
                 sum += mat[primaryI][primaryJ];
