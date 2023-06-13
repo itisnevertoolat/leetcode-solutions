@@ -4,13 +4,12 @@ class Solution {
         for(int i = 0;i< names.length;i++){
             map.put(heights[i], names[i]);
         }
-        Map<Integer, String> sortedMap = new TreeMap<>(Comparator.reverseOrder());
-        sortedMap.putAll(map);
         String[] res = new String[names.length];
-        int i = 0;
-        for(Map.Entry<Integer, String> entry : sortedMap.entrySet()){
-            res[i] = entry.getValue();
-            i++;
+        Arrays.sort(heights);
+        int idx = 0;
+        for(int i= heights.length - 1 ; i>= 0;i--){
+            res[idx] = map.get(heights[i]);
+            idx++;
         }
         return res;
     }
