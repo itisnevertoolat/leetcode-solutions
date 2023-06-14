@@ -4,10 +4,10 @@ class Solution {
 
         for(int i=s.length() - 1 ;i >= 0;i--){
             if(s.charAt(i) == '#'){
-                sb.append((char)('a' + Integer.parseInt(s.charAt(i-2)+""+s.charAt(i-1)+"")-1));
+                sb.append((char)('a' + (10*(s.charAt(i-2) -'0')-1)+s.charAt(i-1)-'0'));
                 i -= 2;
             }else{
-                 sb.append((char)('a' +Integer.parseInt(s.charAt(i)+"")-1));
+                 sb.append((char)('a' +(s.charAt(i)-'0')-1));
             }
         }
          sb.reverse();
