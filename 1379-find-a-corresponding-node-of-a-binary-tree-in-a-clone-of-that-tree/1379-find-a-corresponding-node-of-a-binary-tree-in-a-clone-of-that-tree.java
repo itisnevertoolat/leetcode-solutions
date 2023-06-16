@@ -19,7 +19,6 @@ class Solution {
             TreeNode node = orgQueue.remove();
             res = cloQueue.remove();
             if(node == target){
-                System.out.println("here");
                 return res;
 
             }
