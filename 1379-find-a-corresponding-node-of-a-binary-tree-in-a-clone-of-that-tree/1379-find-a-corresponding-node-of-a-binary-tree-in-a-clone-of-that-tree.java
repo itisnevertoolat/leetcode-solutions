@@ -19,10 +19,7 @@ class Solution {
         while(!orgQueue.isEmpty()){
             node = orgQueue.remove();
             res = cloQueue.remove();
-            if(node == target){
-                return res;
-
-            }
+            if(node == target) return res;
             if(node.left != null) orgQueue.add(node.left);
             if(node.right != null) orgQueue.add(node.right);
             if(res.left != null) cloQueue.add(res.left);
