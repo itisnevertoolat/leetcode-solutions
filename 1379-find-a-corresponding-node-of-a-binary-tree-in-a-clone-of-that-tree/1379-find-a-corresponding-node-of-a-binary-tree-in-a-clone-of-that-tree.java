@@ -15,8 +15,9 @@ class Solution {
         orgQueue.add(original);
         cloQueue.add(cloned);
         TreeNode res = new TreeNode();
+        TreeNode node;
         while(!orgQueue.isEmpty()){
-            TreeNode node = orgQueue.remove();
+            node = orgQueue.remove();
             res = cloQueue.remove();
             if(node == target){
                 return res;
