@@ -1,13 +1,5 @@
-class Solution {
-    public String removeTrailingZeros(String num) {
-        return num.replaceAll("0+$", "");
-    }
-}
-
-
 //using substring
-
-/*class Solution {
+class Solution {
     public String removeTrailingZeros(String num) {
         int idx = 0;
         for(int i=0;i< num.length();i++){
@@ -16,6 +8,16 @@ class Solution {
         }
         
         return num.substring(0, idx+1);
+    }
+}
+
+
+// using replaceAll with regex
+
+/*
+class Solution {
+    public String removeTrailingZeros(String num) {
+        return num.replaceAll("0+$", "");
     }
 }
 */
