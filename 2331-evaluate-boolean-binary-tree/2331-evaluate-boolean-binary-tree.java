@@ -15,7 +15,6 @@
  */
 class Solution {
     public boolean evaluateTree(TreeNode root) {
-        Queue<Integer> queue = new LinkedList<>();
         if(root.val == 0) return false;
         if(root.val == 1) return true;
         boolean lef = evaluateTree(root.left);
