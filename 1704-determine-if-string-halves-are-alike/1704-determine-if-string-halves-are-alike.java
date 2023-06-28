@@ -1,14 +1,12 @@
 class Solution {
     public boolean halvesAreAlike(String s) {
-        int firstHalf = 0;
-        int secondHalf = 0;
+        int res = 0;
         String vowels = "aeiouAEIOU";
         for(int i=0;i<s.length()/2;i++){
-            if(vowels.contains(s.charAt(i)+"")) firstHalf++;
+            if(vowels.contains(s.charAt(i)+"")) res++;
+            if(vowels.contains(s.charAt((s.length()-i)-1)+"")) res--;
+
         }
-        for(int i=s.length()/2;i<s.length();i++){
-            if(vowels.contains(s.charAt(i)+"")) secondHalf++;
-        }
-        return firstHalf == secondHalf;
+        return res == 0;
     }
 }
