@@ -1,14 +1,16 @@
 class Solution {
     public boolean judgeCircle(String moves) {
-        int ver = 0;
-        int hor = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        map.put('L', 0);
+        map.put('R', 0);
+        map.put('U', 0);
+        map.put('D', 0);
+
         for(int i=0;i<moves.length();i++){
-            if(moves.charAt(i) == 'U') ver++;
-            else if(moves.charAt(i) == 'D') ver--;
-            else if(moves.charAt(i) == 'R') hor++;
-            else hor--;
+            char c = moves.charAt(i);
+            map.put(c,map.getOrDefault(c, 0)+1 );
         }
-        if(ver ==0 && hor == 0) return true;
+        if(map.get('L') - map.get('R') == 0&& map.get('U') - map.get('D') == 0) return true;
         else return false;
         
         
