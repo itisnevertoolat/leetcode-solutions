@@ -4,7 +4,8 @@ class Solution {
         int sum = s.length();
         for(int i=0;i<s.length();i++){
             char second = s.charAt(i);
-            sum += Math.min(26-Math.abs(first-second),Math.abs(first-second));
+            int diff = Math.abs(first - second);
+            sum += Math.min(26-diff,diff);
             first = second;
         }
         return sum;
