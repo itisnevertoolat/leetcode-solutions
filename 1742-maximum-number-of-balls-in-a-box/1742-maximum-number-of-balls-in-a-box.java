@@ -1,7 +1,7 @@
 class Solution {
     public int countBalls(int lowLimit, int highLimit) {
         int n = (highLimit-lowLimit) + 1;
-        int[] arr = new int[1000000];
+        Map<Integer, Integer> map = new HashMap<>();
         
         for(int i=lowLimit;i<=highLimit;i++){
             int j = i;
@@ -10,11 +10,11 @@ class Solution {
                 sum += j % 10;
                 j = j / 10;
             }
-            arr[sum] +=1;
+            map.put(sum, map.getOrDefault(sum, 0)+1);
         }
         int max = Integer.MIN_VALUE;
-        for(int i: arr){
-            max = Math.max(i, max);
+        for(Map.Entry<Integer, Integer> entry: map.entrySet()){
+            max = Math.max(entry.getValue(), max);
         }
         return max;
         
