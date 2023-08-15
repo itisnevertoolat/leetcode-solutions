@@ -3,10 +3,15 @@ class Solution {
         long res = 0;
         int start = 0;
         int end = nums.length -1;
+        StringBuilder sb;
         while(end >= start){
-            
-            res += end == start ? Integer.valueOf(nums[start++]) :
-                Integer.valueOf(nums[start++]+""+nums[end--]);
+            sb =  new StringBuilder();
+            sb.append(nums[start]);
+            sb.append(nums[end]);
+            res += end == start ? Integer.valueOf(nums[start]) :
+                Integer.valueOf(sb.toString());
+            start++;
+            end--;
         }
         return res;
     }
