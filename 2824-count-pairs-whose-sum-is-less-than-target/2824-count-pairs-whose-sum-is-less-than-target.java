@@ -1,5 +1,4 @@
 class Solution {
-    
     public int countPairs(List<Integer> nums, int target) {
         int res = 0;
         for(int i=0;i<nums.size();i++){
