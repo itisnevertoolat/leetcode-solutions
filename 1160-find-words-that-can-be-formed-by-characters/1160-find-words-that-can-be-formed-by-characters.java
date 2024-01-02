@@ -2,7 +2,7 @@ class Solution {
     public int countCharacters(String[] words, String chars) {
         Map<Character, Integer> map = new HashMap<>();
         int res = 0;
-        for(char c: chars.toCharArray())
+        for(Character c: chars.toCharArray())
             map.put(c, map.getOrDefault(c, 0)+1);
         for(String s: words){
             boolean good = true;
