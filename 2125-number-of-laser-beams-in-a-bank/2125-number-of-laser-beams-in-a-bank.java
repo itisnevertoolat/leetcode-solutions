@@ -3,11 +3,11 @@ class Solution {
         List<Integer> list = new ArrayList<>();
         for(String s: bank){
             int count = 0;
-            char[] arr = s.toCharArray();
-            Arrays.sort(arr);
-            String sb = new String(arr);
-            int idx = sb.lastIndexOf('0');
-            count = s.length() - (idx  +1);
+            for(char c: s.toCharArray()){
+                if(c == '1')
+                    count++;
+                
+            }
             if(count > 0)
                 list.add(count);
         }
