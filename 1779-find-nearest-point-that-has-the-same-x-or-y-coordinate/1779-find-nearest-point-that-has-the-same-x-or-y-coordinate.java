@@ -1,22 +1,19 @@
 class Solution {
     public int nearestValidPoint(int x, int y, int[][] points) {
-        int count = 0;
-        Map<Integer, Integer> map = new HashMap<>();
-        for(int[] arr: points){
-            if(arr[0] == x||arr[1] == y){
-                int sum = Math.abs(arr[0] - x ) + Math.abs(arr[1] - y);
-                map.put(count, sum);
+        int min=Integer.MAX_VALUE, index=-1, i;
+        
+        for ( i=0;i<points.length;i++){
+            if (x==points[i][0] ||  y==points[i][1]){
+                 int d = Math.abs(x - points[i][0]) + Math.abs(y - points[i][1]);
+                if (d<min){
+                    min=d;
+                    index=i;
+                }
             }
-            count++;
-        }
-        if(map.size() > 0){
-            int min = map.values().stream().sorted().toList().get(0);
-            for(Map.Entry<Integer, Integer> entry: map.entrySet()){
-                if(entry.getValue() == min)
-                    return entry.getKey();
-            }
+            
         }
 
-        return -1;
+        return  index;
+        
     }
 }
