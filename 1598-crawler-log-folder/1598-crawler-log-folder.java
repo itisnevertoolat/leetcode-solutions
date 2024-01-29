@@ -4,12 +4,10 @@ class Solution {
         for(String s: logs){
             if(s.equals("./"))
                 continue;
-            else if(s.equals("../")){
-                if(stack.size() == 0)
+            else if(s.equals("../") && stack.size() == 0)
                     continue;
-                else
-                    stack.pop();
-            }
+            else if(s.equals("../"))
+                 stack.pop();
             else
                 stack.push(1);
         }
