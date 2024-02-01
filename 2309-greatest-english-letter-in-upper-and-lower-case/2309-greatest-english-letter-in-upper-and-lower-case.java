@@ -1,15 +1,14 @@
 class Solution {
     public String greatestLetter(String s) {
-        String res = "";
-        int max = Integer.MIN_VALUE;
-        for(int i=0;i<s.length();i++){
-            char c = s.charAt(i) >= 65 ? (char)(s.charAt(i) + 32) : (char)(s.charAt(i) - 32);
-            if(s.contains(c+"") && c > max){
-                max = c;
-                res = c + "";
+
+        for (int i = 'z'; i >= 'a'; i--) {
+            String lower = Character.toString(i);
+            String upper = Character.toString(i - 32);
+            if (s.contains(lower) && s.contains(upper)) {
+                return upper;
             }
-                
         }
-        return res.toUpperCase();
+
+        return "";
     }
 }
