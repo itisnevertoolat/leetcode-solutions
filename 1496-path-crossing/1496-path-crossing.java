@@ -1,32 +1,30 @@
 class Solution {
     public boolean isPathCrossing(String path) {
-        Map<Character, Pair<Integer, Integer>> moves = new HashMap();
-        moves.put('N', new Pair(0, 1));
-        moves.put('S', new Pair(0, -1));
-        moves.put('W', new Pair(-1, 0));
-        moves.put('E', new Pair(1, 0));
-        
-        Set<Pair<Integer, Integer>> visited = new HashSet();
-        visited.add(new Pair(0, 0));
-        
         int x = 0;
         int y = 0;
-        
-        for (Character c : path.toCharArray()) {
-            Pair<Integer, Integer> curr = moves.get(c);
-            int dx = curr.getKey();
-            int dy = curr.getValue();
-            x += dx;
-            y += dy;
-            
-            Pair<Integer, Integer> pair = new Pair(x, y);
-            if (visited.contains(pair)) {
+        Map<List<Integer>, Integer>  map = new HashMap<>();
+        List<Integer> list = new ArrayList<>();
+        list.add(0);
+        list.add(0);
+        map.put(list, 1);
+        for(char c: path.toCharArray()){
+            list = new ArrayList<>();
+            if(c == 'N')
+                x++;
+            else if(c == 'S')
+                x--;
+            else if(c == 'E')
+                y++;
+            else
+                y--;
+            list.add(x);
+            list.add(y);
+            int res = map.getOrDefault(list, 0) +1;
+            if(res == 2)
                 return true;
-            }
+            map.put(list, res);
             
-            visited.add(pair);
         }
-        
         return false;
     }
-}
+}  
