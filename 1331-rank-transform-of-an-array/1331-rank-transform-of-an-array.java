@@ -1,26 +1,19 @@
 class Solution {
     public int[] arrayRankTransform(int[] arr) {
-        Map<Integer, List<Integer>> map = new HashMap<>();
-        int[] copied = new int[arr.length];
-        System.arraycopy(arr, 0, copied, 0, arr.length);
+        Map<Integer, Integer> map = new HashMap<>();
+        int[] copied = Arrays.copyOf(arr, arr.length);
         Arrays.sort(copied);
-        int count = 1;
-        int[] res= new int[arr.length];
         for(int x: copied){
             if(map.containsKey(x))
-                map.put(x, List.of(map.get(x).get(0), map.get(x).get(1) + 1));
+                continue;
             else
-                map.put(x, List.of(count++, 1));
+                map.put(x, map.size() + 1);
             
         }
-        int count2 = 0;
-        for(int x: arr){
-            res[count2++] = map.get(x).get(0);
-            map.put(x, List.of(map.get(x).get(0), map.get(x).get(1) - 1));
-                
-        }
+        for(int i=0;i< arr.length;i++)
+            copied[i] = map.get(arr[i]);
 
-        return res;
+        return copied;
         
     }
 }
