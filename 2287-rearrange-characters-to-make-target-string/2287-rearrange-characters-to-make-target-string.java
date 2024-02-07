@@ -18,11 +18,15 @@ class Solution {
         
         for(char c: set)
              map.put(c, map.get(c) / map2.get(c));
-            
-        int x = map.values().stream().sorted().toList().get(0);
-        if(x == 0)
+        
+        int max = Integer.MAX_VALUE;    
+        for(int i: map.values()){
+            if(i < max)
+                max = i;
+        }
+        if(max == 0)
             return 0;
         else
-            return x;
+            return max;
     }
 }
