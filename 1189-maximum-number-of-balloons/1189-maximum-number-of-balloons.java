@@ -13,9 +13,10 @@ class Solution {
                 map.put(c, map.getOrDefault(c, 0)+1);
         map.put('l', map.get('l') / 2);
         map.put('o', map.get('o') / 2);
-        for(char c: "ballon".toCharArray())
-            if(map.get(c) == 0)
-                return 0;
-        return map.values().stream().sorted().toList().get(0);
+        int x = map.values().stream().sorted().toList().get(0);
+        if(x == 0)
+            return 0;
+        else
+            return x;
     }
 }
