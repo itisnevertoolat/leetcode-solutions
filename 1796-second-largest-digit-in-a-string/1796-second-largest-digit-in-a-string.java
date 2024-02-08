@@ -1,9 +1,9 @@
 class Solution {
     public int secondHighest(String s) {
         Set<Integer> set = new HashSet<>();
-        String test = s.replaceAll("[a-z]", " ");
-        for(char c: test.toCharArray()){
-            if(c-'0' == -16)
+        for(char c: s.toCharArray()){
+            int x = c;
+            if((x >= 97 && x <= 122) )
                 continue;
             set.add(c-'0');
         }
