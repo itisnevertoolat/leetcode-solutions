@@ -7,18 +7,17 @@ class Solution {
             return "Flush";
         Map<Integer, Integer>  map = new HashMap<>();
         int x;
+        int res = 0;
         for(int i: ranks){
             x = map.getOrDefault(i, 0) + 1;
             if(x == 3)
                return  "Three of a Kind";
+            if(x == 2)
+               res = 2;
             map.put(i, x);
         }
-        for(int i: ranks){
-            x = map.get(i);
-            if(x == 2)
-               return  "Pair";
-            
-        }
+        if(res == 2)
+            return  "Pair";
         
         return "High Card";
         
