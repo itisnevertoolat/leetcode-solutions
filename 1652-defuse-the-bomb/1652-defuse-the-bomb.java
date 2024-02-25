@@ -7,9 +7,8 @@ class Solution {
         }
         
         int[] res = new int[arr.length];
-        
-        if(k > 0){
         int sum = 0;
+        if(k > 0){
             for(int i=0;i<k;i++)
                 sum += arr[i];
             int currentIdx = k;
@@ -29,13 +28,21 @@ class Solution {
 
         }else{
             
-            for(int i=0;i<arr.length;i++){
-                int sum = 0;
-                for(int j=i-1;j>i-(Math.abs(k) + 1);j--){
-                    int idx = (arr.length + j) % arr.length;
-                    sum += arr[idx];
-                }
+            int currentIdx = 0;
+            for(int i=0;i<Math.abs(k);i++){
+                currentIdx = (arr.length - 1) - i;
+                sum += arr[currentIdx];
+            }
+            res[0] = sum;
+            int startIdx = 0;
+            for(int i=1;i<arr.length;i++){
+                startIdx = i - 1;
+
+                currentIdx = (arr.length + currentIdx) % arr.length;
+                sum +=  arr[startIdx];
+                sum -= arr[currentIdx++];
                 res[i] = sum;
+
             }
         }
         return res;
