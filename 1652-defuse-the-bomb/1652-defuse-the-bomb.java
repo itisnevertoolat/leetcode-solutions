@@ -5,16 +5,25 @@ class Solution {
                 arr[i] = 0;
             return arr;
         }
+        
         int[] res = new int[arr.length];
         
         if(k > 0){
+        int sum = 0;
+            for(int i=0;i<k;i++)
+                sum += arr[i];
+            int currentIdx = k;
             for(int i=0;i<arr.length;i++){
-                int sum = 0;
 
-                for(int j=i+1;j<i+(k+1);j++){
-                    int idx = j % arr.length;
+                if(currentIdx >= k){
+                    sum -= arr[i];
+                    int idx = currentIdx % arr.length;
                     sum += arr[idx];
                 }
+                currentIdx++;
+
+
+
                 res[i] = sum;
             }
 
