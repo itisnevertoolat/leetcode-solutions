@@ -8,7 +8,7 @@ class Solution {
         for(int i=1;i<nums.length-(k-1);i++){
             sum += nums[idx++];
             sum -= nums[i-1];
-            res = Math.max(res, (sum / k));
+            res = res >  (sum / k) ? res: (sum /k);
         }
         return res;
     }
