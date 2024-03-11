@@ -1,11 +1,8 @@
 class Solution {
     public String customSortString(String order, String s) {
-        Map<Integer, Character> map = new HashMap<>();
         Map<Character, Integer> map2 = new HashMap<>();
         StringBuilder sb = new StringBuilder();
         
-        for(int i=0;i<order.length();i++)
-            map.put(i, order.charAt(i));
         
         for(char c: s.toCharArray()){
             int x = map2.getOrDefault(c ,0)+1;
@@ -13,11 +10,11 @@ class Solution {
         }
             
         
-        for(int i=0;i<map.size();i++){
-            char c = map.get(i);
+        for(int i=0;i<order.length();i++){
+            char c = order.charAt(i);
             if(map2.containsKey(c)){
                 sb.append(c);
-                sb.append((c+"").repeat(map2.get(c)-1));
+                sb.append(Character.toString(c).repeat(map2.get(c)-1));
                 map2.remove(c);
                 
             }
@@ -26,7 +23,7 @@ class Solution {
         
         for(char c: map2.keySet()){
                 sb.append(c);
-                sb.append((c+"").repeat(map2.get(c)-1));
+                sb.append(Character.toString(c).repeat(map2.get(c)-1));
 
         }
        
