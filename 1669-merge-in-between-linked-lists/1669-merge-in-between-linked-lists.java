@@ -8,25 +8,53 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+
 class Solution {
     public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
-        ListNode temp = list1;
-        ListNode temp2 = list1;
-        ListNode dummy = new ListNode();
-        int count = 1;
-        int count2 = 0;
-        while(temp2 != null){
-            if(count2++ == b+1)
-                dummy = temp2;
-            temp2 = temp2.next;
-            
+        ListNode start = list1;
+        for (int i = 1; i < a; i++) {
+            start = start.next;
         }
-        while(temp != null && temp.next != null){
-            if(count++ == a)
-                temp.next = list2;
-            temp = temp.next;
+        
+        ListNode end = start;
+        for (int i = a; i <= b; i++) {
+            end = end.next;
         }
-        temp.next = dummy;
+        
+        start.next = list2;
+        while (list2.next != null) {
+            list2 = list2.next;
+        }
+        
+        list2.next = end.next;
         return list1;
     }
 }
+
+
+// class Solution {
+//     public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
+//         ListNode temp = list1;
+//         ListNode temp2 = list1;
+//         ListNode dummy = new ListNode();
+//         int count = 1;
+//         int count2 = 0;
+//         while(temp2 != null){
+//             if(count2++ == b+1)
+//                 dummy = temp2;
+//             temp2 = temp2.next;
+            
+//         }
+//         while(temp != null && temp.next != null){
+//             if(count++ == a){
+//                 temp.next = list2;
+//                 break;
+//             }
+                
+//             temp = temp.next;
+//         }
+//         temp.next = dummy;
+//         return list1;
+//     }
+// }
