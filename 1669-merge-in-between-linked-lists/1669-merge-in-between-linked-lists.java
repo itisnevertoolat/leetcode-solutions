@@ -21,12 +21,9 @@ class Solution {
             temp2 = temp2.next;
             
         }
-        System.out.println(dummy.val);
         while(temp != null && temp.next != null){
             if(count++ == a)
                 temp.next = list2;
-            if(count == b)
-                System.out.println(list1.next.next.next.next.val);
             temp = temp.next;
         }
         temp.next = dummy;
