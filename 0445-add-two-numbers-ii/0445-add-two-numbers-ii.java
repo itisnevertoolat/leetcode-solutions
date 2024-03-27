@@ -23,30 +23,24 @@ class Solution {
         }
         int rem = 0;
         int x = 0;
+        ListNode res = new ListNode(0);
+        
         while(s1.size() > 0 || s2.size() > 0){
             if(s1.size() == 0)
-                x = s2.pop() + rem;
+                x += s2.pop();
             else if(s2.size() == 0)
-                x = s1.pop() + rem;
+                x += s1.pop();
             else
-                x = s2.pop() + s1.pop() + rem;
+                x += s2.pop() + s1.pop();
             
-            if( x > 9){
-                rem = 1;
-                x %= 10;
-            }else
-                rem = 0;
-            s3.push(x);
+            res.val = x % 10;
+            ListNode tmp = new ListNode(x / 10);
+            tmp.next = res;
+            res = tmp;
+            x /= 10;
         }
 
-        if(rem == 1)
-            s3.push(1);
-        ListNode res = new ListNode(s3.pop());
-        ListNode tmp = res;
-        while(s3.size() > 0){
-            tmp.next = new ListNode(s3.pop());
-            tmp = tmp.next;
-        }
-        return res;
+        
+        return res.val == 0 ? res.next : res;
     }
 }
