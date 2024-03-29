@@ -6,6 +6,7 @@ class Solution {
             count.put(A.get(j), count.getOrDefault(A.get(j), 0) + 1);
             maxf = Math.max(maxf, count.get(A.get(j)));
             if (j - i + 1 - maxf > k) {
+                System.out.println(j+" " + i + " "+ maxf);
                 count.put(A.get(i), count.get(A.get(i)) - 1);
                 i++;
             }
