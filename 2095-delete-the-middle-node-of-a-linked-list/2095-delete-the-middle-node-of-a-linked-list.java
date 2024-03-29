@@ -10,6 +10,7 @@
  */
 class Solution {
     public ListNode deleteMiddle(ListNode head) {
+        System.gc();
         int mid = 0;
         ListNode tmp = head;
         while(tmp != null){
