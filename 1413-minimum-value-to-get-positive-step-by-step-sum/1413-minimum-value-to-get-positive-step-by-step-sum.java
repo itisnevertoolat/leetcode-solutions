@@ -1,15 +1,13 @@
 class Solution {
     public int minStartValue(int[] nums) {
-        outer: for(int i=1;i<=10000;i++){
-            int sum = i;
-            for(int j: nums){
-                sum += j;
-                if(sum < 1)
-                    continue outer;
-                
-            }
-            return i;
+        int sum = 0, smallest=0;
+        for(int j: nums){
+            sum += j;
+            smallest = Math.min(sum, smallest);
         }
-        return 0;
+        if(smallest == 0)
+            return 1;
+        else
+            return (smallest * -1) + 1;
     }
 }
