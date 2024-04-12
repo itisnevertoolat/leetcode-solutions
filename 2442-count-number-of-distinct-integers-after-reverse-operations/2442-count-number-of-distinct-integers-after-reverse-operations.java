@@ -10,12 +10,18 @@ class Solution {
         
         
     }
-    public int reverseNum(int x){
-        StringBuffer string 
-            = new StringBuffer(String.valueOf(x));
-        string.reverse(); 
+    public int reverseNum(int n){
+            int val = 0;
+            while(n > 0){
+                val = val * 10 + (n % 10);
+                n /= 10;
+            }
+            return val;
+//         StringBuffer string 
+//             = new StringBuffer(String.valueOf(x));
+//         string.reverse(); 
 
-        return Integer.parseInt(String.valueOf(string));
+//         return Integer.parseInt(String.valueOf(string));
 
     }
 }
