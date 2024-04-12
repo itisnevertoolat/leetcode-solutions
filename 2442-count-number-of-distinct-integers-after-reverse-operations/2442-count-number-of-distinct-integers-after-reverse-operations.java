@@ -11,12 +11,11 @@ class Solution {
         
     }
     public int reverseNum(int x){
-        StringBuilder sb = new StringBuilder();
-        while (x > 0){
-            sb.append(x % 10);
-            x /= 10;
-        }
-        return Integer.parseInt(sb.toString());
+        StringBuffer string 
+            = new StringBuffer(String.valueOf(x));
+        string.reverse(); 
+
+        return Integer.parseInt(String.valueOf(string));
 
     }
 }
