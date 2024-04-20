@@ -6,7 +6,7 @@ class Solution {
                 return 0;
             if(Math.abs(i) - 0 == dist)
                 res = Math.max(res, i);
-            if(Math.abs(i) - 0 < dist){
+            else if(Math.abs(i) - 0 < dist){
                 res = i;
                 dist = Math.abs(i) - 0;
             }
