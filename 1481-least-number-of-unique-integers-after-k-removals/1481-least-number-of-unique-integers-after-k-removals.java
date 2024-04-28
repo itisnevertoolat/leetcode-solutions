@@ -7,11 +7,10 @@ class Solution {
         for(Integer key : map.keySet())
             list.add(map.get(key));
         Collections.sort(list);
-        while(k-- > 0){
-            if(list.get(0) == 1)
+        while(k > 0){
+            k -=list.get(0);
+            if(k >= 0)
                 list.remove(0);
-            else
-                list.set(0 , list.get(0) -1);
             
         }
         return list.size();
