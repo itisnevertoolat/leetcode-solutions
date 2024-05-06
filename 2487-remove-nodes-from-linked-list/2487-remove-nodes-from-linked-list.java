@@ -27,15 +27,18 @@ class Solution {
             temp = temp.next;
         }
 
-        while(stack.size() > 0){
-            list.add(stack.pop());
-        }
-        Collections.reverse(list);
-        ListNode res2 = new ListNode(list.get(0).val);
+        // while(stack.size() > 0){
+        //     list.add(stack.pop());
+        // }
+        // Collections.reverse(list);
+        ListNode res2 = new ListNode(stack.firstElement().val);
         ListNode res = res2;
-        for(int i=1;i<list.size();i++){
-            res.next = new ListNode(list.get(i).val);
+        stack.removeFirst();
+        while(stack.size() > 0){
+            res.next = new ListNode(stack.firstElement().val);
             res = res.next;
+            stack.removeFirst();
+
         }
         
         return res2;
