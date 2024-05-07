@@ -1,6 +1,5 @@
 class Solution {
     public int[] minOperations(String boxes) {
-        System.out.print(boxes.length());
         List<Integer> list = new ArrayList<>();
         for(int i=0;i<boxes.length();i++){
             if(boxes.charAt(i) == '1')
