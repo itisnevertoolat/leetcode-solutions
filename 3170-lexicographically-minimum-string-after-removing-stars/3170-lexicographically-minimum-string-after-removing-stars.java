@@ -5,7 +5,19 @@ class Solution {
             return diff;
         return Integer.compare(b[1], a[1]);
     });
+    
     public String clearStars(String s) {
+        StringBuilder sb = replace(s);
+        StringBuilder res = new StringBuilder();
+        for(int i=0;i<s.length();i++)
+            if(sb.charAt(i) != '.')
+                res.append(sb.charAt(i));
+        
+        return res.toString();
+        
+    }
+    
+    public StringBuilder replace(String s){
         StringBuilder sb = new StringBuilder(s);
         for(int i=0;i<s.length();i++){
             if(s.charAt(i) == '*'){
@@ -15,12 +27,6 @@ class Solution {
             }else
                 pq.add(new int[]{s.charAt(i), i});
         }
-        StringBuilder res = new StringBuilder();
-        for(int i=0;i<s.length();i++)
-            if(sb.charAt(i) != '.')
-                res.append(sb.charAt(i));
-        
-        return res.toString();
-        
+        return sb;
     }
 }
