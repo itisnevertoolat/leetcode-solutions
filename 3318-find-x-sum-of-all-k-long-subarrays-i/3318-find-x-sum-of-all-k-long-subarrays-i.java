@@ -23,7 +23,10 @@ class Solution {
                 int res = 0;
                 
                  map.put(nums[i], map.getOrDefault(nums[i], 0) +1);
-                map.put(nums[idx], map.get(nums[idx]) -1);
+                if(map.get(nums[idx]) -1 == 0)
+                    map.remove(nums[idx]);
+                else
+                    map.put(nums[idx], map.get(nums[idx]) -1);
                 pq = new PriorityQueue<>(new CustomComparator());
                 for(Map.Entry<Integer, Integer> entry : map.entrySet())
                     pq.add(new int[]{entry.getKey(), map.get(entry.getKey())});
