@@ -7,6 +7,7 @@ class Solution {
             if(sum > nums[i]){
                 int perimeter = sum + nums[i];
                 ans= ans > perimeter ? ans : perimeter;
+                break;
             }
         }
         return ans;
