@@ -1,11 +1,9 @@
 class Solution {
     public int minimumMoves(String s) {
         int res = 0, count = 0, start = 0;
-        for(int i=0;i<s.length();i++){
-            char c = s.charAt(i);
+        for(char c: s.toCharArray()){
             if(start >= 1)
                 start++;
-
                 
             if(start == 3){
                 res++;
